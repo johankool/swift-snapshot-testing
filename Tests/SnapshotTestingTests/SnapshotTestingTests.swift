@@ -1116,15 +1116,6 @@ final class SnapshotTestingTests: XCTestCase {
     head.addValue("pf_session={}", forHTTPHeaderField: "Cookie")
     assertSnapshot(of: head, as: .raw, named: "head")
     assertSnapshot(of: head, as: .curl, named: "head-curl")
-
-    post = URLRequest(url: URL(string: "https://www.pointfree.co/subscribe")!)
-    post.httpMethod = "POST"
-    post.addValue("pf_session={\"user_id\":\"0\"}", forHTTPHeaderField: "Cookie")
-    post.addValue("application/json", forHTTPHeaderField: "Accept")
-    post.httpBody = Data(
-      """
-      {"pricing": {"lane": "individual","billing": "monthly"}}
-      """.utf8)
   }
 
   func testWebView() throws {
